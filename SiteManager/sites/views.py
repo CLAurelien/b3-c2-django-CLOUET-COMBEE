@@ -1,4 +1,8 @@
+from django.shortcuts import render
+from .models import Sites
 from django.http import HttpResponse
 
+
 def index(request):
-    return HttpResponse("Hello, world")
+    sites = Sites.objects.all()
+    return render(request, 'liste_sites.html', {'sites': sites})
