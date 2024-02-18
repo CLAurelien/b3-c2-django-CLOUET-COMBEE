@@ -24,3 +24,15 @@ def add_site(request):
         form = SiteForm()
 
     return render(request, 'add_site.html', {'form': form})
+
+def edit_site(request, id):
+    site = Sites.objects.get(id=id)
+    if request.method == 'POST':
+        form = SiteForm(request.POST, instance=site)
+        if form.is_valid():
+            form.save()
+            return redirect('/list')
+    else:
+        form = SiteForm(instance=site)
+
+    return render(request, 'edit_site.html', {'form': form})
