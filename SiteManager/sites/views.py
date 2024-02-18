@@ -36,3 +36,11 @@ def edit_site(request, id):
         form = SiteForm(instance=site)
 
     return render(request, 'edit_site.html', {'form': form})
+
+def delete_site(request, id):
+    site = Sites.objects.get(id=id)
+    if request.method == 'POST':
+        site.delete()
+        return redirect('/list')
+
+    return render(request, 'delete_site.html', {'site': site})
