@@ -9,7 +9,7 @@
 
     <ul>
         {% for site in sites %}
-            <li>{{ site.name}} - {{site.password}}</li>
+        <li>Site : <a href={{site.address}}>{{ site.name}}</a> | ID / Email : {{site.id_email}} | Password : {{site.password}}</li>
         {% endfor %}
     </ul>
 </body>
