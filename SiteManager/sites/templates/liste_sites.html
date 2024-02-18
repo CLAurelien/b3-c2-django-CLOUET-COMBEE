@@ -1,0 +1,12 @@
+{% extends './Header.html' %}
+
+{% block content %}
+<h1>Liste des sites</h1>
+
+<ul>
+    {% for site in sites %}
+    <li>Site : <a href={{site.address}}>{{ site.name}}</a> | ID / Email : {{site.id_email}} | Password : {{site.password}} &nbsp; &nbsp; <a href="/edit/{{site.id}}">[edit]</a>&nbsp; &nbsp; <a href="/delete/{{site.id}}">[supprimer]</a></li>
+    {% endfor %}
+</ul>
+
+{% endblock %}
